@@ -12,6 +12,14 @@ print(phonetic_dict)
 # new_dict = {new_key:new_value for (index, row) in student_data_frame.iterrows()}
 
 #TODO 2. Create a list of the phonetic code words from a word that the user inputs.
-word= input("enter the word: ").upper()
-NATO_list = [phonetic_dict[letter] for letter in word]
-print(NATO_list)
+def phonetic_generate():
+  word= input("enter the word: ").upper()
+  try:
+    NATO_list = [phonetic_dict[letter] for letter in word]
+  except KeyError:
+    print("Sorry only alphabets can be used")
+    phonetic_generate()
+  else:
+    print(NATO_list)
+
+phonetic_generate()
